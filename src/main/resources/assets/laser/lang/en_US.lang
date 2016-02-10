@@ -1,0 +1,167 @@
+﻿
+tile.laser.ore.zinc.name=Zinc Ore
+tile.laser.ore.bauxite.name=Bauxite Ore
+tile.laser.ore.titanium.name=Titanium Ore
+tile.laser.ore.chromium.name=Chromium Ore
+tile.laser.ore.infused.name=Blood Infused Cobblestone
+tile.laser.ore.tungsten.name=Tungsten Ore
+tile.laser.ore.ruby.name=Ruby Ore
+tile.laser.ore.sapphire.name=Sapphire Ore
+
+tile.laser.storage.zinc.name=Zinc Block
+tile.laser.storage.brass.name=Brass Block
+tile.laser.storage.aluminium.name=Aluminium Block
+tile.laser.storage.titanium.name=Titanium Block
+tile.laser.storage.chromium.name=Chromium Block
+tile.laser.storage.steel.name=Steel Block
+tile.laser.storage.stainlessSteel.name=Stainless Steel Block
+tile.laser.storage.ghastly.name=Ghastly Alloy Block
+tile.laser.storage.tungsten.name=Tungsten Block
+tile.laser.storage.unobtainium.name=Unobtainium Block
+tile.laser.storage.ruby.name=Ruby Block
+tile.laser.storage.sapphire.name=Sapphire Block
+tile.laser.storage.bediron.name=Bediron Block
+
+tile.laser.fluid.ghast.name=Muddy Ghast
+
+tile.laser.generator.combustion.name=Internal Combustion Generator
+tile.laser.generator.solar.name=Solar Generator
+tile.laser.generator.kinetic.name=Kinetic Generator
+tile.laser.generator.hydroelectric.name=Hydroelectric Generator
+tile.laser.generator.creaturePowered.name=Creature-Powered Generator
+
+info.laser.generator.combustion=Requires solid fuel.
+info.laser.generator.solar=Requires direct sunlight.
+info.laser.generator.kinetic=Requires windmill.
+info.laser.generator.hydroelectric=Requires water flow.
+info.laser.generator.creaturePowered=Requires non-hostile creature.
+
+tile.laser.machine.alloySmelter.name=Alloy Smelter
+tile.laser.machine.chunkQuarry.name=Laser Quarry
+tile.laser.machine.pump.name=Laser Pump
+
+info.laser.machine.alloySmelter=Smelts alloys. 9 inputs.
+info.laser.machine.chunkQuarry=Quarrying terrain per chunk.
+info.laser.machine.pump=Boring terrain and Pumping various fluids.
+
+tile.laser.glass.reinforced.name=Reinforced Glass
+tile.laser.glass.resonant.name=Resonant Glass
+tile.laser.glass.mirror.name=Mirror
+tile.laser.glass.halfMirror.name=Half Mirror
+tile.laser.glass.lightShielding.name=Light Shielding Glass
+
+tile.laser.frame.steel.name=Steel Machine Frame
+
+tile.laser.casing.steel.name=Steel Machine Casing
+
+tile.laser.machine.large.grinder.name=Grinder
+
+info.laser.machine.large.grinder=Grinding things.
+
+tile.laser.google.name="Chrome" Block
+
+info.laser.google=Get a fast.
+
+tile.laser.utnt.name=Underwater TNT
+
+item.laser.material.dustInfused.name=Blood Infused Dust
+item.laser.material.tentacleGhast.name=Ghast Tentacle
+item.laser.material.crystalGhast.name=Ghast Crystal
+item.laser.material.gemInfused.name=Blood Infused Crystal
+item.laser.material.gemRuby.name=Ruby
+item.laser.material.gemSapphire.name=Sapphire
+item.laser.material.lensRuby.name=Ruby Lens
+item.laser.material.lensSapphire.name=Sapphire Lens
+item.laser.material.laserOscillator.name=Laser Oscillator
+item.laser.material.pulseLaserOscillator.name=Pulse Laser Oscillator
+item.laser.material.dynamicLaserOscillator.name=Dynamic Laser Oscillator
+item.laser.material.dustBedrock.name=Pulverized Bedrock
+item.laser.material.bladeSteel.name=Steel Blade
+item.laser.material.ingotGoogle.name="Chrome" Ingot
+
+item.laser.material.dustZinc.name=Pulverized Zinc
+item.laser.material.dustBrass.name=Brass Blend
+item.laser.material.dustAluminium.name=Pulverized Aluminium
+item.laser.material.dustTitanium.name=Pulverized Titanium
+item.laser.material.dustChromium.name=Pulverized Chromium
+item.laser.material.dustSteel.name=Steel Blend
+item.laser.material.dustStainlessSteel.name=Stainless Steel Blend
+item.laser.material.dustGhastly.name=Ghastly Alloy Blend
+item.laser.material.dustTungsten.name=Pulverized Tungsten
+item.laser.material.dustUnobtainium.name=Unobtainium Blend
+item.laser.material.dustBediron.name=Bediron Blend
+
+item.laser.material.ingotZinc.name=Zinc Ingot
+item.laser.material.ingotBrass.name=Brass Ingot
+item.laser.material.ingotAluminium.name=Aluminium Ingot
+item.laser.material.ingotTitanium.name=Titanium Ingot
+item.laser.material.ingotChromium.name=Chromium Ingot
+item.laser.material.ingotSteel.name=Steel Ingot
+item.laser.material.ingotStainlessSteel.name=Stainless Steel Ingot
+item.laser.material.ingotGhastly.name=Ghastly Alloy Ingot
+item.laser.material.ingotTungsten.name=Tungsten Ingot
+item.laser.material.ingotUnobtainium.name=Unobtainium Ingot
+item.laser.material.ingotBediron.name=Bediron Ingot
+
+item.laser.material.nuggetZinc.name=Zinc Nugget
+item.laser.material.nuggetBrass.name=Brass Nugget
+item.laser.material.nuggetAluminium.name=Aluminium Nugget
+item.laser.material.nuggetTitanium.name=Titanium Nugget
+item.laser.material.nuggetChromium.name=Chromium Nugget
+item.laser.material.nuggetSteel.name=Steel Nugget
+item.laser.material.nuggetStainlessSteel.name=Stainless Steel Nugget
+item.laser.material.nuggetGhastly.name=Ghastly Alloy Nugget
+item.laser.material.nuggetTungsten.name=Tungsten Nugget
+item.laser.material.nuggetUnobtainium.name=Unobtainium Nugget
+item.laser.material.nuggetBediron.name=Bediron Nugget
+
+item.laser.material.gearZinc.name=Zinc Gear
+item.laser.material.gearBrass.name=Brass Gear
+item.laser.material.gearAluminium.name=Aluminium Gear
+item.laser.material.gearTitanium.name=Titanium Gear
+item.laser.material.gearChromium.name=Chromium Gear
+item.laser.material.gearSteel.name=Steel Gear
+item.laser.material.gearStainlessSteel.name=Stainless Steel Gear
+item.laser.material.gearGhastly.name=Ghastly Alloy Gear
+item.laser.material.gearTungsten.name=Tungsten Gear
+item.laser.material.gearUnobtainium.name=Unobtainium Gear
+item.laser.material.gearBediron.name=Bediron Gear
+
+item.laser.chunkUtil.chunkReader.name=Chunk Reader
+item.laser.chunkUtil.chunkRecorder.name=Chunk Recorder
+
+item.laser.food.fleshGhastly.name=Ghast Flesh
+
+item.laser.rockcutter.normalRockcutter.name=Rockcutter
+item.laser.rockcutter.laserRockcutter.name=Laser Rockcutter
+
+item.laser.sword.swordBediron.name=Bediron Sword
+
+item.laser.bucket.bucketGhast.name=Muddy Ghast Bucket
+
+fluid.ghast=Muddy Ghast
+
+enchantment.laser.fate=Fate
+enchantment.laser.overload=Overload
+
+chat.laser.chunkUtil.success=Chunk data has been successfully saved.
+
+chat.laser.chunkQuarry.active=Laser Quarry is active! DO NOT TOUCH!
+chat.laser.chunkQuarry.notExist=Chunk not exist! Why?
+chat.laser.chunkQuarry.contains=Chunk contains Laser Quarry itself! It is impossible!
+chat.laser.chunkQuarry.success=Chunk data has been successfully registered.
+
+info.laser.chunkQuarry.config=Quarrying Settings
+info.laser.chunkQuarry.stacks=Contained stacks
+info.laser.chunkQuarry.showBorder=Show Chunk Border
+info.laser.chunkQuarry.buildBarrier=Build Barrier
+
+itemGroup.laser.creativeTabResources=LaserCraft: Resources
+itemGroup.laser.creativeTabBlocks=LaserCraft: Blocks
+itemGroup.laser.creativeTabItems=LaserCraft: Items
+
+nei.laser.construct.title=Constructing
+nei.laser.construct.depth=Depth
+
+config.laser.test=TEST
+config.laser.test.tooltip=Testing is the future, and the future starts with you.

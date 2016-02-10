@@ -1,0 +1,182 @@
+{
+    "zinc": {
+        "template": "uniform",
+        "block": "LaserCraft:ore",
+        "clusterSize": 8,
+        "numClusters": 10,
+        "minHeight": 40,
+        "maxHeight": 75,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    },
+	"bauxite": {
+        "template": "uniform",
+        "block": {"name": "LaserCraft:ore", "metadata": 1},
+        "clusterSize": 8,
+        "numClusters": 8,
+        "minHeight": 50,
+        "maxHeight": 100,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    },
+	"titanium": {
+        "template": "uniform",
+        "block": {"name": "LaserCraft:ore", "metadata": 2},
+        "clusterSize": 3,
+        "numClusters": 2,
+        "minHeight": 5,
+        "maxHeight": 30,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    },
+	"chromium": {
+        "template": "uniform",
+        "block": {"name": "LaserCraft:ore", "metadata": 3},
+        "clusterSize": 3,
+        "numClusters": 2,
+        "minHeight": 5,
+        "maxHeight": 30,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    },
+	"infused": {
+        "template": "uniform",
+        "block": {"name": "LaserCraft:ore", "metadata": 4},
+        "clusterSize": 16,
+        "numClusters": 2,
+        "minHeight": 0,
+        "maxHeight": 128,
+        "retrogen": "false",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    },
+	"tungsten": {
+        "template": "uniform",
+        "block": {"name": "LaserCraft:ore", "metadata": 5},
+        "clusterSize": 2,
+        "numClusters": 1,
+        "minHeight": 5,
+        "maxHeight": 20,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    },
+	"ruby": {
+        "template": "uniform",
+        "block": {"name": "LaserCraft:ore", "metadata": 6},
+        "clusterSize": 4,
+        "numClusters": 3,
+        "minHeight": 0,
+        "maxHeight": 32,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    },
+	"sapphire": {
+        "template": "uniform",
+        "block": {"name": "LaserCraft:ore", "metadata": 7},
+        "clusterSize": 4,
+        "numClusters": 3,
+        "minHeight": 0,
+        "maxHeight": 32,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    },
+	"platinum": {
+        "template": "uniform",
+        "block": {"name": "ThermalFoundation:Ore", "metadata": 5},
+        "clusterSize": 4,
+        "numClusters": 2,
+        "minHeight": 5,
+        "maxHeight": 20,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    },
+	"mithril": {
+        "template": "uniform",
+        "block": {"name": "ThermalFoundation:Ore", "metadata": 6},
+        "clusterSize": 1,
+        "numClusters": 1,
+        "minHeight": 10,
+        "maxHeight": 15,
+        "retrogen": "true",
+        "biomeRestriction": "none",
+        "biomes": [
+            "all"
+        ],
+        "dimensionRestriction": "blacklist",
+        "dimensions": [
+            -1,
+            1
+        ]
+    }
+}
