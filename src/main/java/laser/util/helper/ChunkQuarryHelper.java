@@ -38,7 +38,7 @@ public class ChunkQuarryHelper {
    public static void addConfigInformation(ItemStack paramItemStack, List paramList) {
       if(isConfigured(paramItemStack)) {
          int i = (NBTTagList)paramItemStack.stackTagCompound.getTag("Stacks") == null?0:((NBTTagList)paramItemStack.stackTagCompound.getTag("Stacks")).tagCount();
-         paramList.add(StringHelper.localize("info.laser.chunkQuarry.stacks") + " : " + i + " / " + '\u9c40' + " stacks");
+         paramList.add(StringHelper.localize("info.laser.chunkQuarry.stacks") + " : " + i + " / " + "40000" + " stacks");
          paramList.add(StringHelper.localize("info.laser.chunkQuarry.showBorder") + " : " + paramItemStack.stackTagCompound.getBoolean("ShowBorder"));
          paramList.add(StringHelper.localize("info.laser.chunkQuarry.buildBarrier") + " : " + paramItemStack.stackTagCompound.getBoolean("BuildBarrier"));
       }
