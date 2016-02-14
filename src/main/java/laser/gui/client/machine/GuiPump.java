@@ -5,12 +5,12 @@ import cofh.lib.gui.element.ElementDualScaled;
 import cofh.lib.gui.element.ElementEnergyStored;
 import cofh.lib.gui.element.ElementFluid;
 import cofh.lib.gui.element.ElementFluidTank;
+import cofh.thermalexpansion.gui.element.ElementSlotOverlay;
 import laser.block.machine.TilePump;
 import laser.gui.container.machine.ContainerPump;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import thermalexpansion.gui.element.ElementSlotOverlay;
 
 public class GuiPump extends GuiMachineBase {
 

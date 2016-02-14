@@ -7,14 +7,14 @@ import cofh.core.render.IconRegistry;
 import cofh.lib.util.TimeTracker;
 import cofh.lib.util.helpers.MathHelper;
 import cofh.lib.util.helpers.ServerHelper;
+import cofh.thermalexpansion.block.TileReconfigurable;
+import cofh.thermalexpansion.block.TileTEBase;
+import cofh.thermalexpansion.core.TEProps;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
-import thermalexpansion.block.TileReconfigurable;
-import thermalexpansion.block.TileTEBase;
-import thermalexpansion.core.TEProps;
 
 public abstract class TileMachineBase extends TileReconfigurable implements IEnergyInfo, ISidedInventory {
 
@@ -256,7 +256,7 @@ public abstract class TileMachineBase extends TileReconfigurable implements IEne
    }
 
    public int getNumConfig(int paramInt) {
-      return this.sideConfig.numGroup;
+      return this.sideConfig.numConfig;
    }
 
    public boolean isItemValid(ItemStack paramItemStack, int paramInt1, int paramInt2) {
@@ -268,11 +268,11 @@ public abstract class TileMachineBase extends TileReconfigurable implements IEne
    }
 
    public boolean canInsertItem(int paramInt1, ItemStack paramItemStack, int paramInt2) {
-      return this.sideConfig.allowInsertion[this.sideCache[paramInt2]]?this.isItemValid(paramItemStack, paramInt1, paramInt2):false;
+      return this.sideConfig.allowInsertionSlot[this.sideCache[paramInt2]]?this.isItemValid(paramItemStack, paramInt1, paramInt2):false;
    }
 
    public boolean canExtractItem(int paramInt1, ItemStack paramItemStack, int paramInt2) {
-      return this.sideConfig.allowExtraction[this.sideCache[paramInt2]];
+      return this.sideConfig.allowInsertionSlot[this.sideCache[paramInt2]];
    }
 
 }

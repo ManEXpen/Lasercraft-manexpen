@@ -10,6 +10,14 @@ import cofh.core.util.ConfigHandler;
 import cofh.core.util.CoreUtils;
 import cofh.core.util.fluid.BucketHandler;
 import cofh.lib.util.helpers.ItemHelper;
+import cofh.thermalexpansion.block.cache.BlockCache;
+import cofh.thermalexpansion.item.TEItems;
+import cofh. thermalexpansion.util.crafting.CrucibleManager;
+import cofh.thermalexpansion.util.crafting.PulverizerManager;
+import cofh.thermalexpansion.util.crafting.SmelterManager;
+import cofh.thermalexpansion.util.crafting.TransposerManager;
+import cofh.thermalfoundation.fluid.TFFluids;
+import cofh.thermalfoundation.item.TFItems;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -81,26 +89,18 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import thermalexpansion.block.cache.BlockCache;
-import thermalexpansion.item.TEItems;
-import thermalexpansion.util.crafting.CrucibleManager;
-import thermalexpansion.util.crafting.PulverizerManager;
-import thermalexpansion.util.crafting.SmelterManager;
-import thermalexpansion.util.crafting.TransposerManager;
-import thermalfoundation.fluid.TFFluids;
-import thermalfoundation.item.TFItems;
 
-@Mod(modid = "LaserCraft", name = "LaserCraft", version = "1.7.10-0.2B4", acceptedMinecraftVersions = "[1.7.10,)", guiFactory = "laser.gui.GuiConfigLCFactory", dependencies = "required-after:ThermalExpansion")
+@Mod(modid = "LaserCraft", name = "LaserCraft", version = "1.7.10-0.3A4", acceptedMinecraftVersions = "[1.7.10,)", guiFactory = "laser.gui.GuiConfigLCFactory", dependencies = "required-after:ThermalExpansion")
 public class Laser {
 
 	public static final String modId = "LaserCraft";
 	public static final String modName = "LaserCraft";
-	public static final String modVersion = "1.7.10-0.2B4";
+	public static final String modVersion = "1.7.10-0.2A4";
 	@Instance("LaserCraft")
 	public static Laser instance;
 	@SidedProxy(clientSide = "laser.proxy.ClientProxy", serverSide = "laser.proxy.CommonProxy")
 	public static CommonProxy proxy;
-	public static ConfigHandler config = new ConfigHandler("1.7.10-0.2B4");
+	public static ConfigHandler config = new ConfigHandler("1.7.10-0.3A4");
 	public static File worldGen;
 	public static int[] renderIDs = new int[1];
 	public static Block ore;
@@ -547,7 +547,7 @@ public class Laser {
 		GameRegistry.addRecipe(new ShapedOreRecipe(machineChunkQuarry,
 				new Object[] { "LLL", "RFC", "ZGZ", Character.valueOf('L'), laserOscillator, Character.valueOf('F'),
 						frameSteel, Character.valueOf('R'),
-						thermalexpansion.block.simple.BlockFrame.frameCellReinforcedFull, Character.valueOf('Z'),
+						cofh.thermalexpansion.block.simple.BlockFrame.frameCellReinforcedFull, Character.valueOf('Z'),
 						"gearZinc", Character.valueOf('C'), BlockCache.cacheHardened, Character.valueOf('G'),
 						TEItems.powerCoilGold }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(machineGrinder,

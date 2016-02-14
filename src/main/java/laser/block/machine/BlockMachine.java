@@ -9,6 +9,8 @@ import cofh.lib.util.helpers.BlockHelper;
 import cofh.lib.util.helpers.EnergyHelper;
 import cofh.lib.util.helpers.RedstoneControlHelper;
 import cofh.lib.util.helpers.StringHelper;
+import cofh.thermalexpansion.block.BlockTEBase;
+import cofh.thermalexpansion.util.ReconfigurableHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import laser.Laser;
@@ -30,8 +32,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.EmptyChunk;
 import net.minecraftforge.common.util.ForgeDirection;
-import thermalexpansion.block.BlockTEBase;
-import thermalexpansion.util.ReconfigurableHelper;
 
 public class BlockMachine extends BlockTEBase {
 

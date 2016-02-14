@@ -6,6 +6,8 @@ import java.util.Iterator;
 import cofh.core.network.PacketCoFHBase;
 import cofh.lib.util.helpers.BlockHelper;
 import cofh.lib.util.helpers.ServerHelper;
+import cofh.thermalexpansion.block.TileTEBase;
+import cofh.thermalexpansion.util.Utils;
 import cpw.mods.fml.relauncher.Side;
 import laser.entity.EntityQuarryLaser;
 import laser.gui.client.machine.GuiChunkQuarry;
@@ -25,8 +27,6 @@ import net.minecraft.world.chunk.EmptyChunk;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.IFluidBlock;
-import thermalexpansion.block.TileTEBase;
-import thermalexpansion.util.Utils;
 
 public class TileChunkQuarry extends TileMachineBase {
 
@@ -46,10 +46,10 @@ public class TileChunkQuarry extends TileMachineBase {
 
    public static void initialize() {
       defaultSideConfig[1] = new TileTEBase.SideConfig();
-      defaultSideConfig[1].numGroup = 2;
+      defaultSideConfig[1].numConfig = 2;
       defaultSideConfig[1].slotGroups = new int[][]{new int[0], new int[0]};
-      defaultSideConfig[1].allowInsertion = new boolean[]{false, false};
-      defaultSideConfig[1].allowExtraction = new boolean[]{false, true};
+      defaultSideConfig[1].allowInsertionSlot = new boolean[]{false, false};
+      defaultSideConfig[1].allowExtractionSlot = new boolean[]{false, true};
       defaultSideConfig[1].sideTex = new int[]{0, 4};
       defaultSideConfig[1].defaultSides = new byte[]{(byte)1, (byte)1, (byte)1, (byte)1, (byte)1, (byte)1};
       defaultEnergyConfig[1] = new TileTEBase.EnergyConfig();
@@ -265,7 +265,7 @@ public class TileChunkQuarry extends TileMachineBase {
             if(this.sideCache[i] == 1) {
                ItemStack itemstack = ((ItemStack)this.stacks.get(0)).copy();
                TileEntity localTileEntity = BlockHelper.getAdjacentTileEntity(this, i);
-               if(Utils.isInventory(localTileEntity, i)) {
+               if(Utils.isAccessibleInventory(localTileEntity, i)) {
                   itemstack.stackSize -= itemstack.stackSize - Utils.addToInventory(localTileEntity, i, itemstack);
                   if(itemstack.stackSize <= 0) {
                      this.stacks.remove(0);

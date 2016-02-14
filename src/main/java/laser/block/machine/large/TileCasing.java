@@ -1,10 +1,10 @@
 package laser.block.machine.large;
 
 import cofh.core.network.PacketCoFHBase;
+import cofh.thermalexpansion.block.TileTEBase;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import thermalexpansion.block.TileTEBase;
 
 public class TileCasing extends TileTEBase {
 

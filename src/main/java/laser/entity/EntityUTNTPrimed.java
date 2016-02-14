@@ -1,5 +1,6 @@
 package laser.entity;
 
+import cofh.thermalexpansion.block.TEBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -9,7 +10,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidRegistry;
-import thermalexpansion.block.TEBlocks;
 
 public class EntityUTNTPrimed extends Entity {
 

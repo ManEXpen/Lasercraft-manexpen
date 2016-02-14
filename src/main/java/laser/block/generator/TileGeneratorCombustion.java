@@ -2,6 +2,7 @@ package laser.block.generator;
 
 import cofh.core.network.PacketCoFHBase;
 import cofh.lib.util.helpers.ItemHelper;
+import cofh.thermalexpansion.block.TileTEBase;
 import laser.gui.client.generator.GuiGeneratorCombustion;
 import laser.gui.container.generator.ContainerGeneratorCombustion;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,7 +10,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityFurnace;
-import thermalexpansion.block.TileTEBase;
 
 public class TileGeneratorCombustion extends TileGeneratorBase {
 

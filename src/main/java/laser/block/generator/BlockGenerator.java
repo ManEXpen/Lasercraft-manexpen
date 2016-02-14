@@ -2,7 +2,9 @@ package laser.block.generator;
 
 import java.util.List;
 
+import cofh.api.energy.EnergyStorage;
 import cofh.lib.util.helpers.StringHelper;
+import cofh.thermalexpansion.block.BlockTEBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import laser.Laser;
@@ -17,10 +19,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import thermalexpansion.block.BlockTEBase;
 
 public class BlockGenerator extends BlockTEBase {
 
+	protected EnergyStorage energyStorage = new EnergyStorage(0);
    public static final String[] TYPES = new String[]{"combustion", "solar", "kinetic", "hydroelectric", "creaturePowered", "ghast"};
    public static final IIcon[][] TEXTURES = new IIcon[TYPES.length][3];
 
@@ -56,7 +58,7 @@ public class BlockGenerator extends BlockTEBase {
    public void func_149689_a(World paramWorld, int paramInt1, int paramInt2, int paramInt3, EntityLivingBase paramEntityLivingBase, ItemStack paramItemStack) {
       TileGeneratorBase localTileGeneratorBase = (TileGeneratorBase)paramWorld.getTileEntity(paramInt1, paramInt2, paramInt3);
       if(paramItemStack.stackTagCompound != null) {
-         localTileGeneratorBase.setEnergyStored(paramItemStack.stackTagCompound.getInteger("Energy"));
+         setEnergyStored(paramItemStack.stackTagCompound.getInteger("Energy"));
       }
 
       super.func_149689_a(paramWorld, paramInt1, paramInt2, paramInt3, paramEntityLivingBase, paramItemStack);
@@ -99,5 +101,9 @@ public class BlockGenerator extends BlockTEBase {
    public boolean postInit() {
       return true;
    }
+
+   public final void setEnergyStored(int paramInt) {
+		this.energyStorage.setEnergyStored(paramInt);
+	}
 
 }

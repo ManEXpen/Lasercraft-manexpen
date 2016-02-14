@@ -3,6 +3,7 @@ package laser.block.machine.large;
 import java.util.ArrayList;
 
 import cofh.core.util.CoreUtils;
+import cofh.thermalexpansion.block.TileTEBase;
 import laser.Laser;
 import laser.gui.client.machine.large.GuiGrinder;
 import laser.gui.container.machine.large.ContainerGrinder;
@@ -11,7 +12,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
-import thermalexpansion.block.TileTEBase;
 
 public class TileGrinder extends TileLargeMachineBase {
 

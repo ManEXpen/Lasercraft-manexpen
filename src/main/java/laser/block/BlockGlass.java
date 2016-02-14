@@ -8,6 +8,7 @@ import cofh.api.block.IDismantleable;
 import cofh.core.util.CoreUtils;
 import cofh.lib.util.helpers.ServerHelper;
 import cofh.lib.util.helpers.StringHelper;
+import cofh.thermalexpansion.util.Utils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import laser.Laser;
@@ -26,7 +27,6 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import thermalexpansion.util.Utils;
 
 public class BlockGlass extends Block implements IDismantleable {
 

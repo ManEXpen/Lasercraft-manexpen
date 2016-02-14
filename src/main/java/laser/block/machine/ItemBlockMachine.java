@@ -8,12 +8,12 @@ import cofh.lib.util.helpers.EnergyHelper;
 import cofh.lib.util.helpers.ItemHelper;
 import cofh.lib.util.helpers.RedstoneControlHelper;
 import cofh.lib.util.helpers.StringHelper;
+import cofh.thermalexpansion.util.ReconfigurableHelper;
 import laser.util.helper.ChunkQuarryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import thermalexpansion.util.ReconfigurableHelper;
 
 public class ItemBlockMachine extends ItemBlockBase {
 

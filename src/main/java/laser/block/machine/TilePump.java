@@ -6,6 +6,7 @@ import cofh.core.network.PacketCoFHBase;
 import cofh.core.util.fluid.FluidTankAdv;
 import cofh.lib.util.helpers.FluidHelper;
 import cofh.lib.util.helpers.ServerHelper;
+import cofh.thermalexpansion.block.TileTEBase;
 import laser.gui.client.machine.GuiPump;
 import laser.gui.container.machine.ContainerPump;
 import net.minecraft.block.Block;
@@ -19,7 +20,6 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
-import thermalexpansion.block.TileTEBase;
 
 public class TilePump extends TileMachineBase implements IFluidHandler {
 
@@ -36,10 +36,10 @@ public class TilePump extends TileMachineBase implements IFluidHandler {
 
    public static void initialize() {
       defaultSideConfig[2] = new TileTEBase.SideConfig();
-      defaultSideConfig[2].numGroup = 2;
+      defaultSideConfig[2].numConfig = 2;
       defaultSideConfig[2].slotGroups = new int[][]{new int[0], new int[0]};
-      defaultSideConfig[2].allowInsertion = new boolean[]{false, false};
-      defaultSideConfig[2].allowExtraction = new boolean[]{false, true};
+      defaultSideConfig[2].allowInsertionSlot = new boolean[]{false, false};
+      defaultSideConfig[2].allowExtractionSlot = new boolean[]{false, true};
       defaultSideConfig[2].sideTex = new int[]{0, 4};
       defaultSideConfig[2].defaultSides = new byte[]{(byte)1, (byte)1, (byte)1, (byte)1, (byte)1, (byte)1};
       defaultEnergyConfig[2] = new TileTEBase.EnergyConfig();

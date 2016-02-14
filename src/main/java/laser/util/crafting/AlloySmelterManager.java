@@ -10,12 +10,12 @@ import java.util.Set;
 import cofh.lib.inventory.ComparableItemStack;
 import cofh.lib.inventory.ComparableItemStackSafe;
 import cofh.lib.util.helpers.ItemHelper;
+import cofh.thermalexpansion.util.crafting.SmelterManager;
 import gnu.trove.map.hash.THashMap;
 import gnu.trove.set.hash.THashSet;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import thermalexpansion.util.crafting.SmelterManager;
 
 public class AlloySmelterManager {
 

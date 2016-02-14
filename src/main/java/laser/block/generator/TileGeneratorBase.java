@@ -2,21 +2,26 @@ package laser.block.generator;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyHandler;
+import cofh.api.energy.IEnergyStorage;
 import cofh.api.tileentity.IEnergyInfo;
+import cofh.api.tileentity.ISecurable;
+import cofh.core.CoFHProps;
 import cofh.core.network.ITileInfoPacketHandler;
 import cofh.core.network.PacketCoFHBase;
+import cofh.core.util.CoreUtils;
 import cofh.lib.util.TimeTracker;
 import cofh.lib.util.helpers.BlockHelper;
 import cofh.lib.util.helpers.EnergyHelper;
 import cofh.lib.util.helpers.RedstoneControlHelper;
 import cofh.lib.util.helpers.ServerHelper;
+import cofh.thermalexpansion.block.TileRSControl;
+import cofh.thermalexpansion.block.TileTEBase;
 import cpw.mods.fml.relauncher.Side;
+import laser.util.OldCofhCompatibility.OldCofhCompatibility;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
-import thermalexpansion.block.TileRSControl;
-import thermalexpansion.block.TileTEBase;
 
 public abstract class TileGeneratorBase extends TileRSControl implements ITileInfoPacketHandler, IEnergyInfo {
 
@@ -32,11 +37,12 @@ public abstract class TileGeneratorBase extends TileRSControl implements ITileIn
    IEnergyHandler[] adjacentHandlers = new IEnergyHandler[6];
    protected TileTEBase.EnergyConfig config;
    protected TimeTracker tracker = new TimeTracker();
+   protected EnergyStorage energyStorage = new EnergyStorage(0);
 
 
    public TileGeneratorBase() {
       this.config = defaultEnergyConfig[this.getType()];
-      this.energyStorage = new EnergyStorage(this.config.maxEnergy, this.config.maxPower * 2);
+		this.energyStorage = new EnergyStorage(this.config.maxEnergy, this.config.maxPower * 2);
    }
 
    public String getName() {
@@ -152,6 +158,10 @@ public abstract class TileGeneratorBase extends TileRSControl implements ITileIn
    protected boolean hasStoredEnergy() {
       return this.energyStorage.getEnergyStored() > 0;
    }
+
+   public int getScaledEnergyStored(int paramInt) {
+		return this.energyStorage.getEnergyStored() * paramInt / this.energyStorage.getMaxEnergyStored();
+	}
 
    protected void attenuate() {
       if(this.timeCheck() && this.fuelRF > 0) {
@@ -282,5 +292,23 @@ public abstract class TileGeneratorBase extends TileRSControl implements ITileIn
          RedstoneControlHelper.setItemStackTagRS(paramNBTTagCompound, this);
       }
    }
+
+   public boolean canPlayerAccess(String paramString) {
+		if (!(this instanceof ISecurable)) {
+			return true;
+		}
+		ISecurable.AccessMode localAccessMode = ((ISecurable) this).getAccess();
+		String str = ((ISecurable) this).getOwnerName();
+
+		return (localAccessMode.isPublic()) || ((CoFHProps.enableOpSecureAccess) && (CoreUtils.isOp(paramString)))
+				|| (str.equals("[None]")) || (str.equals(paramString))
+				|| ((localAccessMode.isRestricted()) && (OldCofhCompatibility.playerHasAccess(paramString, str)));
+	}
+
+   public IEnergyStorage getEnergyStorage() {
+		return this.energyStorage;
+	}
+
+
 
 }

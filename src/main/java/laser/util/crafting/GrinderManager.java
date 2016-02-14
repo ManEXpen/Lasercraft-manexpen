@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import cofh.lib.inventory.ComparableItemStack;
+import cofh.thermalexpansion.util.crafting.PulverizerManager;
 import gnu.trove.map.hash.THashMap;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import thermalexpansion.util.crafting.PulverizerManager;
 
 public class GrinderManager {
 

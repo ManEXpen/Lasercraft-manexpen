@@ -1,10 +1,10 @@
 package laser.gui.container.machine;
 
 import cofh.lib.gui.slot.SlotEnergy;
+import cofh.thermalexpansion.gui.container.ContainerTEBase;
 import laser.block.machine.TilePump;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.tileentity.TileEntity;
-import thermalexpansion.gui.container.ContainerTEBase;
 
 public class ContainerPump extends ContainerTEBase {
 

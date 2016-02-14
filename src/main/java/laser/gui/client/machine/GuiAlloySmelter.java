@@ -3,12 +3,12 @@ package laser.gui.client.machine;
 import cofh.lib.gui.element.ElementBase;
 import cofh.lib.gui.element.ElementDualScaled;
 import cofh.lib.gui.element.ElementEnergyStored;
+import cofh.thermalexpansion.gui.element.ElementSlotOverlay;
 import laser.gui.container.machine.ContainerAlloySmelter;
 import laser.gui.element.ElementSlotOverlay9;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import thermalexpansion.gui.element.ElementSlotOverlay;
 
 public class GuiAlloySmelter extends GuiMachineBase {
 

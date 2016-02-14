@@ -3,8 +3,8 @@ package laser.gui.element;
 import cofh.lib.gui.GuiBase;
 import cofh.lib.gui.element.ElementBase;
 import cofh.lib.render.RenderHelper;
+import cofh.thermalexpansion.core.TEProps;
 import net.minecraft.util.ResourceLocation;
-import thermalexpansion.core.TEProps;
 
 public class ElementSlotOverlay9 extends ElementBase {
 
@@ -24,7 +24,7 @@ public class ElementSlotOverlay9 extends ElementBase {
 	public void drawBackground(int paramInt1, int paramInt2, float paramFloat) {
 		if (this.isVisible()) {
 			RenderHelper.bindTexture(this.texture);
-			if (TEProps.enableGuiBorders) {
+			if (TEProps.useAlternateShader) {
 				this.drawSlotWithBorder(this.posX, this.posY);
 			} else {
 				this.drawSlotNoBorder(this.posX, this.posY);

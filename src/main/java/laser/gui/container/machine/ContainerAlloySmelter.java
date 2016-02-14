@@ -4,12 +4,12 @@ import cofh.lib.gui.slot.ISlotValidator;
 import cofh.lib.gui.slot.SlotEnergy;
 import cofh.lib.gui.slot.SlotRemoveOnly;
 import cofh.lib.gui.slot.SlotValidated;
+import cofh.thermalexpansion.gui.container.ContainerTEBase;
 import laser.block.machine.TileAlloySmelter;
 import laser.util.crafting.AlloySmelterManager;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import thermalexpansion.gui.container.ContainerTEBase;
 
 public class ContainerAlloySmelter extends ContainerTEBase implements ISlotValidator {
 
