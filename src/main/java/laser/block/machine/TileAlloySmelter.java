@@ -183,7 +183,7 @@ public class TileAlloySmelter extends TileMachineBase {
 	@Override
 	public int getSizeInventory() {
 		// TODO 自動生成されたメソッド・スタブ
-		return 0;
+		return 12;
 	}
 
 	@Override
@@ -213,7 +213,7 @@ public class TileAlloySmelter extends TileMachineBase {
 	@Override
 	public int getInventoryStackLimit() {
 		// TODO 自動生成されたメソッド・スタブ
-		return 0;
+		return 64;
 	}
 
 	@Override
@@ -231,6 +231,7 @@ public class TileAlloySmelter extends TileMachineBase {
 	@Override
 	public void closeInventory() {
 		// TODO 自動生成されたメソッド・スタブ
+		super.markDirty();
 
 	}
 
@@ -238,12 +239,6 @@ public class TileAlloySmelter extends TileMachineBase {
 	public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
 		// TODO 自動生成されたメソッド・スタブ
 		return false;
-	}
-
-	@Override
-	public void markDirty() {
-		// TODO 自動生成されたメソッド・スタブ
-
 	}
 
 }

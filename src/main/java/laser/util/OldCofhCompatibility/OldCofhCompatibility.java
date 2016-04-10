@@ -1,4 +1,4 @@
-package laser.util.OldCofhCompatibility;
+package laser.util.oldCofhCompatibility;
 
 import cofh.core.util.SocialRegistry;
 

@@ -8,12 +8,11 @@ import net.minecraft.tileentity.TileEntity;
 
 public class ContainerChunkQuarry extends ContainerTEBase {
 
-   TileChunkQuarry myTile;
+	TileChunkQuarry myTile;
 
-
-   public ContainerChunkQuarry(InventoryPlayer paramInventoryPlayer, TileEntity paramTileEntity) {
-      super(paramInventoryPlayer, paramTileEntity);
-      this.myTile = (TileChunkQuarry)paramTileEntity;
+	public ContainerChunkQuarry(InventoryPlayer paramInventoryPlayer, TileEntity paramTileEntity) {
+		super(paramInventoryPlayer, paramTileEntity);
+		this.myTile = (TileChunkQuarry) paramTileEntity;
 		this.addSlotToContainer(new SlotEnergy(this.myTile, this.myTile.getChargeSlot(), 8, 53));
-   }
+	}
 }

@@ -17,7 +17,7 @@ import cofh.lib.util.helpers.ServerHelper;
 import cofh.thermalexpansion.block.TileRSControl;
 import cofh.thermalexpansion.block.TileTEBase;
 import cpw.mods.fml.relauncher.Side;
-import laser.util.OldCofhCompatibility.OldCofhCompatibility;
+import laser.util.oldCofhCompatibility.OldCofhCompatibility;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
