@@ -155,6 +155,9 @@ info.laser.chunkQuarry.config=Quarrying Settings
 info.laser.chunkQuarry.stacks=Contained stacks
 info.laser.chunkQuarry.showBorder=Show Chunk Border
 info.laser.chunkQuarry.buildBarrier=Build Barrier
+info.laser.chunkQuarry.xchunkchange=X direction of chunk
+info.laser.chunkQuarry.ychunkchange=Y direction of chunk
+info.laser.chunkQuarry.save=Save
 
 itemGroup.laser.creativeTabResources=LaserCraft: Resources
 itemGroup.laser.creativeTabBlocks=LaserCraft: Blocks

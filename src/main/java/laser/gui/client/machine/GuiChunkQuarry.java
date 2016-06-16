@@ -25,6 +25,7 @@ public class GuiChunkQuarry extends GuiMachineBase implements IStackGui {
 
 	public void func_73866_w_() {
 		super.func_73866_w_();
+
 		this.addTab(new TabChunkQuarry(this, (TileChunkQuarry) this.myTile));
 		this.slotStack = this.addElement((new ElementSlotOverlayStack(this, 154, 9)).setSlotColor(1));
 		this.addElement(new ElementEnergyStored(this, 8, 8, this.myTile.getEnergyStorage()));

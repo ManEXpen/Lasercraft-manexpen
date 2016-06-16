@@ -12,7 +12,6 @@ public class RenderHelper {
 
 	public static void renderBorder(World world, int chunkX, int chunkZ, float r, float g, float b) {
 		Minecraft mc = Minecraft.getMinecraft();
-		System.out.println(chunkX + " " + chunkZ);
 		int beginX = chunkX * 16;
 		int beginZ = chunkZ * 16;
 		int endX = beginX + 16;

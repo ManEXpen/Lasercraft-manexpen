@@ -29,7 +29,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.IFluidBlock;
 
-public class TileChunkQuarry extends TileMachineBase implements ISidedInventory {
+public class TileChunkQuarry extends TileMachineBase
+		implements
+			ISidedInventory {
 
 	static final int TYPE = 1;
 	int outputTracker;
@@ -41,17 +43,19 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 	public int stackCount;
 	public boolean showBorder;
 	public boolean buildBarrier;
+	public int GuiChunkSizeX, GuiChunkSizeY;// チャンクサイズ用
 	public EntityQuarryLaser[] entityQuarryLaser = new EntityQuarryLaser[15];
 	public EntityQuarryLaser[] entityQuarryLaser1 = new EntityQuarryLaser[4];
 
 	public static void initialize() {
 		defaultSideConfig[1] = new TileTEBase.SideConfig();
 		defaultSideConfig[1].numConfig = 2;
-		defaultSideConfig[1].slotGroups = new int[][] { new int[0], new int[0] };
-		defaultSideConfig[1].allowInsertionSlot = new boolean[] { false, false };
-		defaultSideConfig[1].allowExtractionSlot = new boolean[] { false, true };
-		defaultSideConfig[1].sideTex = new int[] { 0, 4 };
-		defaultSideConfig[1].defaultSides = new byte[] { (byte) 1, (byte) 1, (byte) 1, (byte) 1, (byte) 1, (byte) 1 };
+		defaultSideConfig[1].slotGroups = new int[][]{new int[0], new int[0]};
+		defaultSideConfig[1].allowInsertionSlot = new boolean[]{false, false};
+		defaultSideConfig[1].allowExtractionSlot = new boolean[]{false, true};
+		defaultSideConfig[1].sideTex = new int[]{0, 4};
+		defaultSideConfig[1].defaultSides = new byte[]{(byte) 1, (byte) 1,
+				(byte) 1, (byte) 1, (byte) 1, (byte) 1};
 		defaultEnergyConfig[1] = new TileTEBase.EnergyConfig();
 		defaultEnergyConfig[1].setParams(64, 1024, 10000000);
 	}
@@ -125,24 +129,28 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 			this.chargeEnergy();
 		}
 
-		if (ServerHelper.isClientWorld(this.worldObj) && this.showBorder && this.timeCheckEighth()
-				&& !this.isContainItself()) {
-			RenderHelper.renderBorder(this.worldObj, this.chunkCoordX, this.chunkCoordZ);
+		if (ServerHelper.isClientWorld(this.worldObj) && this.showBorder
+				&& this.timeCheckEighth() && !this.isContainItself()) {
+			RenderHelper.renderBorder(this.worldObj, this.chunkCoordX,
+					this.chunkCoordZ);
 		}
 
 		if (this.isActive) {
 			for (i = 0; i < this.entityQuarryLaser.length; ++i) {
 				if (this.entityQuarryLaser[i] == null) {
-					this.entityQuarryLaser[i] = new EntityQuarryLaser(this.worldObj, this, i);
+					this.entityQuarryLaser[i] = new EntityQuarryLaser(
+							this.worldObj, this, i);
 					this.worldObj.spawnEntityInWorld(this.entityQuarryLaser[i]);
 				}
 			}
 
 			for (i = 0; i < this.entityQuarryLaser1.length; ++i) {
 				if (this.entityQuarryLaser1[i] == null) {
-					this.entityQuarryLaser1[i] = new EntityQuarryLaser(this.worldObj, this,
+					this.entityQuarryLaser1[i] = new EntityQuarryLaser(
+							this.worldObj, this,
 							ForgeDirection.getOrientation(i + 2));
-					this.worldObj.spawnEntityInWorld(this.entityQuarryLaser1[i]);
+					this.worldObj
+							.spawnEntityInWorld(this.entityQuarryLaser1[i]);
 				}
 			}
 
@@ -168,26 +176,33 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 	}
 
 	private boolean isContainItself() {
-		Chunk chunk = this.worldObj.getChunkFromChunkCoords(this.chunkCoordX, this.chunkCoordZ);
+		Chunk chunk = this.worldObj.getChunkFromChunkCoords(this.chunkCoordX,
+				this.chunkCoordZ);
 		return chunk.chunkTileEntityMap.containsValue(this);
 	}
 
 	protected boolean canStart() {
-		Chunk chunk = this.worldObj.getChunkFromChunkCoords(this.chunkCoordX, this.chunkCoordZ);
-		return this.aimY >= 0 && this.aimY < 256 && !(chunk instanceof EmptyChunk) && !this.isContainItself()
-				&& this.energyStorage.getEnergyStored() >= this.getRequireEnergy();
+		Chunk chunk = this.worldObj.getChunkFromChunkCoords(this.chunkCoordX,
+				this.chunkCoordZ);
+		return this.aimY >= 0 && this.aimY < 256
+				&& !(chunk instanceof EmptyChunk) && !this.isContainItself()
+				&& this.energyStorage.getEnergyStored() >= this
+						.getRequireEnergy();
 	}
 
 	protected boolean canFinish() {
-		Chunk chunk = this.worldObj.getChunkFromChunkCoords(this.chunkCoordX, this.chunkCoordZ);
-		return this.processRem <= 0 && !(chunk instanceof EmptyChunk) && !this.isContainItself();
+		Chunk chunk = this.worldObj.getChunkFromChunkCoords(this.chunkCoordX,
+				this.chunkCoordZ);
+		return this.processRem <= 0 && !(chunk instanceof EmptyChunk)
+				&& !this.isContainItself();
 	}
 
 	private int getRequireEnergy() {
 		if (this.isContainItself()) {
 			return 0;
 		} else if (this.aimY >= 0 && this.aimY < 256
-				&& !(this.worldObj.getChunkFromChunkCoords(this.chunkCoordX, this.chunkCoordZ) instanceof EmptyChunk)) {
+				&& !(this.worldObj.getChunkFromChunkCoords(this.chunkCoordX,
+						this.chunkCoordZ) instanceof EmptyChunk)) {
 			int beginX = this.chunkCoordX * 16;
 			int beginZ = this.chunkCoordZ * 16;
 			int endX = beginX + 16;
@@ -196,7 +211,9 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 
 			for (int i = beginX; i < endX; ++i) {
 				for (int j = beginZ; j < endZ; ++j) {
-					energy += this.getEnergyForBlock(this.worldObj.getBlock(i, this.aimY, j), i, this.aimY, j);
+					energy += this.getEnergyForBlock(
+							this.worldObj.getBlock(i, this.aimY, j), i,
+							this.aimY, j);
 				}
 			}
 
@@ -207,11 +224,17 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 	}
 
 	private int getEnergyForBlock(Block block, int x, int y, int z) {
-		return !block.isAir(this.worldObj, x, y, z) && block.getBlockHardness(this.worldObj, x, y, z) >= 0.0F
-				? (FluidRegistry.lookupFluidForBlock(block) != null
-						? Math.abs(FluidRegistry.lookupFluidForBlock(block).getDensity())
-						: (int) Math.ceil((2.0D + (double) block.getBlockHardness(this.worldObj, x, y, z)) * 200.0D))
-				: 0;
+		return !block.isAir(this.worldObj, x, y, z)
+				&& block.getBlockHardness(this.worldObj, x, y, z) >= 0.0F
+						? (FluidRegistry.lookupFluidForBlock(block) != null
+								? Math.abs(
+										FluidRegistry.lookupFluidForBlock(block)
+												.getDensity())
+								: (int) Math.ceil(
+										(2.0D + (double) block.getBlockHardness(
+												this.worldObj, x, y, z))
+												* 200.0D))
+						: 0;
 	}
 
 	protected void processStart() {
@@ -223,11 +246,16 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 		if (this.buildBarrier) {
 			for (int i = beginX; i < endX; ++i) {
 				for (int j = beginZ; j < endZ; ++j) {
-					if (i == beginX || i == endX - 1 || j == beginZ || j == endZ - 1) {
+					if (i == beginX || i == endX - 1 || j == beginZ
+							|| j == endZ - 1) {
 						Block block = this.worldObj.getBlock(i, this.aimY, j);
-						if (block instanceof IFluidBlock || block == Blocks.water || block == Blocks.flowing_water
-								|| block == Blocks.lava || block == Blocks.flowing_lava) {
-							this.worldObj.setBlock(i, this.aimY, j, Blocks.glass);
+						if (block instanceof IFluidBlock
+								|| block == Blocks.water
+								|| block == Blocks.flowing_water
+								|| block == Blocks.lava
+								|| block == Blocks.flowing_lava) {
+							this.worldObj.setBlock(i, this.aimY, j,
+									Blocks.glass);
 							e += 256;
 						}
 					}
@@ -249,9 +277,13 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 			for (int j = beginZ; j < endZ; ++j) {
 				Block block = this.worldObj.getBlock(i, this.aimY, j);
 				if (!block.isAir(this.worldObj, i, this.aimY, j)
-						&& block.getBlockHardness(this.worldObj, i, this.aimY, j) >= 0.0F) {
-					this.stacks.addAll(block.getDrops(this.worldObj, i, this.aimY, j,
-							this.worldObj.getBlockMetadata(i, this.aimY, j), 0));
+						&& block.getBlockHardness(this.worldObj, i, this.aimY,
+								j) >= 0.0F) {
+					this.stacks
+							.addAll(block.getDrops(this.worldObj, i,
+									this.aimY, j, this.worldObj
+											.getBlockMetadata(i, this.aimY, j),
+									0));
 					if (this.stacks.size() > '\u9c40') {
 						int k = this.stacks.size() - '\u9c40';
 
@@ -271,14 +303,17 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 
 	protected void transferProducts() {
 		if (!this.stacks.isEmpty()) {
-			for (int j = this.outputTracker + 1; j <= this.outputTracker + 6; ++j) {
+			for (int j = this.outputTracker + 1; j <= this.outputTracker
+					+ 6; ++j) {
 				int i = j % 6;
 				if (this.sideCache[i] == 1) {
-					ItemStack itemstack = ((ItemStack) this.stacks.get(0)).copy();
-					TileEntity localTileEntity = BlockHelper.getAdjacentTileEntity(this, i);
+					ItemStack itemstack = ((ItemStack) this.stacks.get(0))
+							.copy();
+					TileEntity localTileEntity = BlockHelper
+							.getAdjacentTileEntity(this, i);
 					if (Utils.isAccessibleInventory(localTileEntity, i)) {
-						itemstack.stackSize -= itemstack.stackSize
-								- Utils.addToInventory(localTileEntity, i, itemstack);
+						itemstack.stackSize -= itemstack.stackSize - Utils
+								.addToInventory(localTileEntity, i, itemstack);
 						if (itemstack.stackSize <= 0) {
 							this.stacks.remove(0);
 						}
@@ -288,7 +323,8 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 					}
 
 					if (Utils.isPipeTile(localTileEntity)) {
-						itemstack.stackSize -= Utils.addToPipeTile(localTileEntity, i, itemstack);
+						itemstack.stackSize -= Utils
+								.addToPipeTile(localTileEntity, i, itemstack);
 						if (itemstack.stackSize <= 0) {
 							this.stacks.remove(0);
 						}
@@ -308,66 +344,66 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 		int i;
 		ForgeDirection localForgeDirection;
 		if (this.allowYAxisFacing()) {
-			label63: switch (this.facing) {
-			case 0:
-				i = 0;
+			label63 : switch (this.facing) {
+				case 0 :
+					i = 0;
 
-				while (true) {
-					if (i >= 6) {
-						break label63;
+					while (true) {
+						if (i >= 6) {
+							break label63;
+						}
+
+						arrayOfByte[i] = this.sideCache[BlockHelper.INVERT_AROUND_X[i]];
+						++i;
 					}
+				case 1 :
+					i = 0;
 
-					arrayOfByte[i] = this.sideCache[BlockHelper.INVERT_AROUND_X[i]];
-					++i;
-				}
-			case 1:
-				i = 0;
+					while (true) {
+						if (i >= 6) {
+							break label63;
+						}
 
-				while (true) {
-					if (i >= 6) {
-						break label63;
+						arrayOfByte[i] = this.sideCache[BlockHelper.ROTATE_CLOCK_X[i]];
+						++i;
 					}
+				case 2 :
+					i = 0;
 
-					arrayOfByte[i] = this.sideCache[BlockHelper.ROTATE_CLOCK_X[i]];
-					++i;
-				}
-			case 2:
-				i = 0;
+					while (true) {
+						if (i >= 6) {
+							break label63;
+						}
 
-				while (true) {
-					if (i >= 6) {
-						break label63;
+						arrayOfByte[i] = this.sideCache[BlockHelper.INVERT_AROUND_Y[i]];
+						++i;
 					}
+				case 3 :
+					i = 0;
 
-					arrayOfByte[i] = this.sideCache[BlockHelper.INVERT_AROUND_Y[i]];
-					++i;
-				}
-			case 3:
-				i = 0;
+					while (true) {
+						if (i >= 6) {
+							break label63;
+						}
 
-				while (true) {
-					if (i >= 6) {
-						break label63;
+						arrayOfByte[i] = this.sideCache[BlockHelper.ROTATE_CLOCK_Y[i]];
+						++i;
 					}
+				case 4 :
+					i = 0;
 
-					arrayOfByte[i] = this.sideCache[BlockHelper.ROTATE_CLOCK_Y[i]];
-					++i;
-				}
-			case 4:
-				i = 0;
+					while (true) {
+						if (i >= 6) {
+							break label63;
+						}
 
-				while (true) {
-					if (i >= 6) {
-						break label63;
+						arrayOfByte[i] = this.sideCache[BlockHelper.INVERT_AROUND_Z[i]];
+						++i;
 					}
-
-					arrayOfByte[i] = this.sideCache[BlockHelper.INVERT_AROUND_Z[i]];
-					++i;
-				}
-			case 5:
-				for (i = 0; i < 6; ++i) {
-					arrayOfByte[i] = this.sideCache[BlockHelper.ROTATE_CLOCK_Z[i]];
-				}
+				case 5 :
+					for (i = 0; i < 6; ++i) {
+						arrayOfByte[i] = this.sideCache[BlockHelper.ROTATE_CLOCK_Z[i]];
+					}
 			}
 
 			this.sideCache = (byte[]) ((byte[]) arrayOfByte.clone());
@@ -406,9 +442,12 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 			if (!this.allowYAxisFacing() && paramInt < 2) {
 				return false;
 			} else {
-				ForgeDirection localForgeDirection = ForgeDirection.getOrientation(paramInt);
-				this.chunkCoordX = (this.xCoord >> 4) - localForgeDirection.offsetX;
-				this.chunkCoordZ = (this.zCoord >> 4) - localForgeDirection.offsetZ;
+				ForgeDirection localForgeDirection = ForgeDirection
+						.getOrientation(paramInt);
+				this.chunkCoordX = (this.xCoord >> 4)
+						- localForgeDirection.offsetX;
+				this.chunkCoordZ = (this.zCoord >> 4)
+						- localForgeDirection.offsetZ;
 				this.aimY = 255;
 				return super.setFacing(paramInt);
 			}
@@ -417,7 +456,8 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 		}
 	}
 
-	public boolean isItemValid(ItemStack paramItemStack, int paramInt1, int paramInt2) {
+	public boolean isItemValid(ItemStack paramItemStack, int paramInt1,
+			int paramInt2) {
 		return false;
 	}
 
@@ -438,10 +478,12 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 		this.showBorder = paramNBTTagCompound.getBoolean("ShowBorder");
 		this.buildBarrier = paramNBTTagCompound.getBoolean("BuildBarrier");
 		ArrayList arraylist = new ArrayList();
-		NBTTagList nbttaglist = (NBTTagList) paramNBTTagCompound.getTag("Stacks");
+		NBTTagList nbttaglist = (NBTTagList) paramNBTTagCompound
+				.getTag("Stacks");
 
 		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
-			arraylist.add(ItemStack.loadItemStackFromNBT(nbttaglist.getCompoundTagAt(i)));
+			arraylist.add(ItemStack
+					.loadItemStackFromNBT(nbttaglist.getCompoundTagAt(i)));
 		}
 
 		this.stacks = arraylist;
@@ -492,7 +534,8 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 		this.stackCount = paramPacketCoFHBase.getInt();
 	}
 
-	public void handleTilePacket(PacketCoFHBase paramPacketCoFHBase, boolean paramBoolean) {
+	public void handleTilePacket(PacketCoFHBase paramPacketCoFHBase,
+			boolean paramBoolean) {
 		super.handleTilePacket(paramPacketCoFHBase, paramBoolean);
 		if (!paramBoolean) {
 			this.isActive = paramPacketCoFHBase.getBool();
@@ -519,7 +562,8 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 	public void setShowBorder(boolean paramBoolean) {
 		this.showBorder = paramBoolean;
 		if (ServerHelper.isClientWorld(this.worldObj)) {
-			PacketLCBase.sendShowBorderPacketToServer(this, this.xCoord, this.yCoord, this.zCoord);
+			PacketLCBase.sendShowBorderPacketToServer(this, this.xCoord,
+					this.yCoord, this.zCoord);
 		} else {
 			this.sendUpdatePacket(Side.CLIENT);
 		}
@@ -529,11 +573,23 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 	public void setBuildBarrier(boolean paramBoolean) {
 		this.buildBarrier = paramBoolean;
 		if (ServerHelper.isClientWorld(this.worldObj)) {
-			PacketLCBase.sendBuildBarrierPacketToServer(this, this.xCoord, this.yCoord, this.zCoord);
+			PacketLCBase.sendBuildBarrierPacketToServer(this, this.xCoord,
+					this.yCoord, this.zCoord);
 		} else {
 			this.sendUpdatePacket(Side.CLIENT);
 		}
 
+	}
+
+	public void setGuiChunkSize(int X, int Y) {
+		this.GuiChunkSizeX = X;
+		this.GuiChunkSizeY = Y;
+		if (ServerHelper.isClientWorld(worldObj)) {
+			PacketLCBase.sendChunkSizePacketToServer(this, this.xCoord,
+					this.yCoord, this.zCoord);
+		} else {
+			this.sendUpdatePacket(Side.CLIENT);
+		}
 	}
 
 	public String getSoundName() {
@@ -548,12 +604,15 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 		return this.sideConfig.slotGroups[this.sideCache[paramInt]];
 	}
 
-	public boolean canInsertItem(int paramInt1, ItemStack paramItemStack, int paramInt2) {
+	public boolean canInsertItem(int paramInt1, ItemStack paramItemStack,
+			int paramInt2) {
 		return this.sideConfig.allowInsertionSide[this.sideCache[paramInt2]]
-				? isItemValid(paramItemStack, paramInt1, paramInt2) : false;
+				? isItemValid(paramItemStack, paramInt1, paramInt2)
+				: false;
 	}
 
-	public boolean canExtractItem(int paramInt1, ItemStack paramItemStack, int paramInt2) {
+	public boolean canExtractItem(int paramInt1, ItemStack paramItemStack,
+			int paramInt2) {
 		return this.sideConfig.allowExtractionSide[this.sideCache[paramInt2]];
 	}
 
@@ -596,9 +655,12 @@ public class TileChunkQuarry extends TileMachineBase implements ISidedInventory 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
 		// TODO 自動生成されたメソッド・スタブ
-		return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false
-				: p_70300_1_.getDistanceSq((double) this.xCoord + 0.5D, (double) this.yCoord + 0.5D,
-						(double) this.zCoord + 0.5D) <= 64.0D;
+		return this.worldObj.getTileEntity(this.xCoord, this.yCoord,
+				this.zCoord) != this
+						? false
+						: p_70300_1_.getDistanceSq((double) this.xCoord + 0.5D,
+								(double) this.yCoord + 0.5D,
+								(double) this.zCoord + 0.5D) <= 64.0D;
 	}
 
 	@Override

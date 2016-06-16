@@ -155,6 +155,9 @@ info.laser.chunkQuarry.config=露天掘り設定
 info.laser.chunkQuarry.stacks=貯蔵スタック
 info.laser.chunkQuarry.showBorder=チャンク境界の表示
 info.laser.chunkQuarry.buildBarrier=液体バリアの建設
+info.laser.chunkQuarry.save=設定の保存
+info.laser.chunkQuarry.xchunkchange=X方向のチャンクサイズ
+info.laser.chunkQuarry.ychunkchange=Y方向のチャンクサイズ
 
 itemGroup.laser.creativeTabResources=LaserCraft: 資源
 itemGroup.laser.creativeTabBlocks=LaserCraft: ブロック
